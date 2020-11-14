@@ -1,17 +1,17 @@
 # calcpace
 [EN]
 
-A simple Python project to calculate a run pace or a predict run time (marathon, half-marathon, 10 and 5km...)
+A simple Python project to calculate a running pace or a predict running time (marathon, half-marathon, 10 and 5km...)
 
 Option 1 - PACE - any letter or number
 
-Put a run time (HH:MM:SS) and distance (XX.XX km)
+Put a running time (HH:MM:SS) and distance (XX.XX km)
 It returns a pace (MM:SS)
 
 Option 2 - RUN TIME - 't'
 
 Put a pace (MM:SS) and distance (XX.XX km)
-It returns a predict run time (HH:MM:SS)
+It returns a predict running time (HH:MM:SS)
 
 [PT-BR]
 
