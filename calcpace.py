@@ -1,4 +1,4 @@
-escolha = input("Digite 't' para prever um tempo de corrida\n ou qualquer tecla para calcular o pace:")
+escolha = input("Digite 't' para prever um tempo de corrida\n ou qualquer tecla para calcular o pace: ")
 h, m, s = 0, 0, 0
 
 if escolha == 't':
@@ -9,12 +9,12 @@ if escolha == 't':
     m = dist * int(minuto)
     s = dist * int(segundo)
     while s >= 60:
-            m += 1
-            s -= 60
-            while m >= 60:
-                h += 1
-                m -= 60
-    h, m, s = round(h), round(m), round(s)
+        m += 1
+        s -= 60
+    while m >= 60:
+        h += 1
+        m -= 60
+    m, s = round(m), round(s)
     print(f'Você percorrerá os {dist}km no tempo de {h:0>2}h{m:0>2}min{s:0>2}seg.')
 
 else:
