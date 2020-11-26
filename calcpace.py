@@ -1,8 +1,9 @@
+#aencoding:utf-8
 escolha = input("Digite 't' para prever um tempo de corrida\n ou qualquer tecla para calcular o pace: ")
 h, m, s = 0, 0, 0
 
 if escolha == 't':
-    
+
     dist = float(input('Qual a distância a ser percorrida em km? Ex: X.X '))
     pace = input('Qual o pace desejado (M:S)? ' )
     minuto, segundo = pace.split(':')
@@ -18,11 +19,11 @@ if escolha == 't':
     print(f'Você percorrerá os {dist}km no tempo de {h:0>2}h{m:0>2}min{s:0>2}seg.')
 
 else:
-    
+
     dist = input('Qual a distância percorrida em km? Ex: X.X ')
     tempo = input('Quanto tempo (H:M:S)? ' )
     hora, minuto, segundo = tempo.split(':')
-    
+
     t = (int(hora)*3600) + (int(minuto)*60) + int(segundo)
     p = t / float(dist)
     while p >= 60:
