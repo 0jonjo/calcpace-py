@@ -1,4 +1,3 @@
-#aencoding:utf-8
 escolha = input("Digite 't' para prever um tempo de corrida\n ou qualquer tecla para calcular o pace: ")
 h, m, s = 0, 0, 0
 
