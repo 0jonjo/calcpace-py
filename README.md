@@ -1,7 +1,7 @@
 # calcpace
 [EN]
 
-A simple Python project to calculate a running pace or a predict running time (marathon, half-marathon, 10 and 5km...)
+A simple Python project to calculate a running pace or a predict running time (marathon, half-marathon and custom options)
 
 Option 1 - PACE - any letter or number
 
@@ -15,7 +15,7 @@ It returns a predict running time (HH:MM:SS)
 
 [PT-BR]
 
-Um projeto simples em Python para calcular o pace de corrida ou um tempo de corrida previsto (maratona, meia-maratona, 10 e 5km...) 
+Um projeto simples em Python para calcular o pace de corrida ou um tempo de corrida previsto (maratona, meia-maratona ou qualquer outra distância) 
 
 Opção 1 - PACE - qualquer letra ou número
 
