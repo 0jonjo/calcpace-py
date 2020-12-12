@@ -22,7 +22,7 @@ Opção 1 - PACE - qualquer letra ou número
 Coloque o tempo de corrida (HH:MM:SS) and distancia (XX.XX km)
 Ele retorna o pace (MM:SS)
 
-Opção 2 - Tempo de corrida - 't'
+Opção 2 - Tempo de corrida - '0'
 
 Coloque um pace (MM:SS) e a distancia (XX.XX km)
 Ele retorna o tempo de corrida previsto (HH:MM:SS)
