@@ -4,7 +4,7 @@ import time
 dist = input('Qual a distância a ser percorrida em km?\n m = maratona, h = meia maratona ou digite os km. Ex: X.X ')
 if dist == 'm':
     c = 42.195
-if dist == 'h':
+elif dist == 'h':
     c = 21.0975
 else:
     c = float(dist)
