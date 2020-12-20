@@ -1,31 +1,31 @@
 # calcpace
 [PT-BR]
 
-Um projeto simples em Python para calcular o pace de corrida ou um tempo de corrida previsto (maratona, meia-maratona ou qualquer outra distância) 
+Um projeto simples em Python para calcular o pace de corrida ou um tempo de corrida previsto (maratona, meia-maratona ou qualquer outra distância).
 
-Opção 1 - PACE - qualquer letra ou número
+Opção 1 - PACE - qualquer tecla.
 
-Coloque o tempo de corrida (HH:MM:SS) and distancia (XX.XX km)
-Ele retorna o pace (MM:SS)
+Coloque a distancia (XX.XX km) e o tempo de corrida (HH:MM:SS).
+Ele retorna o pace (HH:MM:SS).
 
-Opção 2 - Tempo de corrida - '0'
+Opção 2 - Tempo de corrida - '0'.
 
-Coloque um pace (MM:SS) e a distancia (XX.XX km)
-Ele retorna o tempo de corrida previsto (HH:MM:SS)
+Coloque a distancia (XX.XX km) o pace (HH:MM:SS).
+Ele retorna o tempo de corrida previsto (HH:MM:SS).
 
 [EN]
 
-A simple Python project to calculate a running pace or a predict running time (marathon, half-marathon and custom options)
+A simple Python project to calculate a running pace or a predict running time (marathon, half-marathon and custom options).
 
-Option 1 - PACE - any letter or number
+Option 1 - PACE - any key.
 
-Put a running time (HH:MM:SS) and distance (XX.XX km)
-It returns a pace (MM:SS)
+Put a  distance (XX.XX km) and running time (HH:MM:SS).
+It returns a pace (HH:MM:SS).
 
-Option 2 - RUN TIME - '0'
+Option 2 - RUN TIME - '0'.
 
-Put a pace (MM:SS) and distance (XX.XX km)
-It returns a predict running time (HH:MM:SS)
+Put distance (XX.XX km) and pace (HH:MM:SS).
+It returns a predict running time (HH:MM:SS).
 
 -x-
 
