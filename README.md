@@ -1,6 +1,6 @@
 # CALCPACE
 
-##[PT-BR]
+## [PT-BR]
 
 Um projeto simples em Python para calcular o pace de corrida ou um tempo de corrida previsto (maratona, meia-maratona ou qualquer outra distância).
 
