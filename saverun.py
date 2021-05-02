@@ -5,8 +5,6 @@ from datetime import datetime
 entradaData = input("Insira a data no formato DD/MM/AAAA: ")
 data = datetime.strptime(entradaData, "%d/%m/%Y")
 
-print(f"Você inseriu a data: {data}")
-
 distancia = input('Qual a distância percorrida em km?\n m = maratona, h = meia maratona ou digite os km. Ex: X.X ')
 
 def dist(distancia):
@@ -20,11 +18,7 @@ def dist(distancia):
 
 totaldistancia = dist(distancia)
 
-print(f"Você inseriu a dinstância: {totaldistancia} km")
-
 temp = input('Escreva o tempo da corrida formato (H:M:S)? ')
-
-print(f"Você inseriu o tempo: {temp}")
 
 def tempo(temp):
     hora, minuto, segundo = temp.split(':')
@@ -41,5 +35,9 @@ def pace(pacetempo, pacedistancia):
 
 finalpace = pace(totaltempo, totaldistancia)
 
-print(f"Você correu no pace: {finalpace}")
+def prevcorrida(pacetempo, distancia):
+    p = float(pacetempo) * float(distancia)
+    ty_res = time.gmtime(p)
+    resultadotempocorrida = time.strftime("%H:%M:%S",ty_res)
+    return resultadotempocorrida
 
