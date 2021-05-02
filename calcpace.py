@@ -10,7 +10,7 @@ else:
     c = float(dist)
     
 #Input do tempo total de prova ou do pace
-tempo = input('Quanto tempo ou pace. Escreva no formato (H:M:S)? ')
+tempo = input('Escreva o tempo total ou pace no formato (H:M:S) ')
 hora, minuto, segundo = tempo.split(':')
 t = (int(hora)*3600) + (int(minuto)*60) + int(segundo)
 
