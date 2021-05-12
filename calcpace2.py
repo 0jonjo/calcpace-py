@@ -1,4 +1,3 @@
-import time
 from functions import dist
 from functions import tempo
 from functions import ajustetempo
@@ -12,7 +11,7 @@ from functions import lerdados
 from functions import escreverdados
 
 #Menu inicial
-opcao = input('Escolha a opção desejada: \n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. VER/EDITAR CORRIDA]\n')
+opcao = input('Escolha a opção desejada: \n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. VER CORRIDAS SALVAS]\n')
 if opcao == '1':
     totaldistancia = dist()
     totaltempo = tempo()
@@ -35,6 +34,8 @@ elif opcao == '3':
     finalpace = pace(ajuste, totaldistancia)
     converter = convertertempo(finalpace)           
     obs = observacao()
-    escrever = escreverdados(str(data), totaldistancia, str(totaltempo), str(converter), obs)  
+    escrever = escreverdados(str(data), totaldistancia, str(totaltempo), str(converter), obs)
+elif opcao == '4':
+    lerdados()
 else:
     print('Opção inválida')
