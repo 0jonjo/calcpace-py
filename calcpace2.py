@@ -7,11 +7,13 @@ from functions import convertertempo
 from functions import impressao
 from functions import entradadata
 from functions import observacao
-from functions import lerdados
-from functions import escreverdados
+from functions import inserirdados
+from functions import verdados
+from functions import deletardados
+from functions import criartabela
 
 #Menu inicial
-opcao = input('Escolha a opção desejada: \n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. VER CORRIDAS SALVAS]\n')
+opcao = input('Escolha a opção desejada:\n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. VER CORRIDAS SALVAS]\n [5. DELETAR CORRIDA]\n')
 if opcao == '1':
     totaldistancia = dist()
     totaltempo = tempo()
@@ -27,6 +29,7 @@ elif opcao == '2':
     converter = convertertempo(finalpace)
     impress = impressao(converter)
 elif opcao == '3':
+    criartabela()
     data = entradadata()
     totaldistancia = dist()
     totaltempo = tempo()
@@ -34,8 +37,11 @@ elif opcao == '3':
     finalpace = pace(ajuste, totaldistancia)
     converter = convertertempo(finalpace)           
     obs = observacao()
-    escrever = escreverdados(str(data), totaldistancia, str(totaltempo), str(converter), obs)
+    escrever = inserirdados(data, totaldistancia, totaltempo, converter, obs)
 elif opcao == '4':
-    lerdados()
+    verdados()
+elif opcao == '5':
+    verdados()
+    deletardados()
 else:
     print('Opção inválida')

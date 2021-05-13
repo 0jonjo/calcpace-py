@@ -3,6 +3,10 @@ import datetime
 from datetime import datetime
 import csv
 from csv import reader, writer
+import sqlite3
+
+conn = sqlite3.connect("calpace.db")
+curr = conn.cursor()
 
 def dist():
     distancia = input("Escreva a distância em km?\n m = maratona, h = meia maratona ou digite os km em X.X ")
@@ -40,25 +44,57 @@ def impressao(i):
     print(f'O resultado é {i}.')
 
 def entradadata():
-    entradaData = input("Insira a data no formato DD/MM/AAAA: ")
-    data = datetime.strptime(entradaData, "%d/%m/%Y")
+    data = input("Insira a data no formato DD/MM/AAAA: ")
     return data
 
 def observacao():
     obs = input("Insira a observação: ")
     return obs
 
-def lerdados():
-    with open('dadoscorrida.csv') as csv_file:
-    
-        csv_reader = csv.reader(csv_file, delimiter=',')
+def criartabela():
 
-        for row in csv_reader:
-            print(row)
-            
-def escreverdados(data, dist, tempo, pace, obs):
-    with open('dadoscorrida.csv', 'a', newline='') as file:
+    createTableCommand =  """CREATE TABLE DADOS (
+    data TEXT PRIMARY KEY,
+    distancia REAL NOT NULL,
+    tempo TEXT NOT NULL,
+    pace TEXT NOT NULL,
+    obs TEXT
+    );"""
 
-        writer = csv.writer(file)
-    
-        writer.writerow([data, dist, tempo, pace, obs])
+    try: 
+        curr.execute(createTableCommand)
+        print("Tabela criada com sucesso")
+    except:
+        print("Já existe uma tabela")
+    finally:
+        conn.commit()
+
+def inserirdados(data, dist, tempo, pace, obs):
+         
+    addData = f"""INSERT INTO DADOS VALUES('{data}', '{dist}', '{tempo}', '{pace}', '{obs}')"""
+    print(addData)
+    curr.execute(addData)
+    print("Corrida salva com sucesso!")
+ 
+    conn.commit()
+
+def verdados():
+
+    fetchData = "SELECT * from DADOS"
+ 
+    curr.execute(fetchData)
+ 
+    answer = curr.fetchall()
+ 
+    for data in answer:
+        print(data)
+
+def deletardados():
+
+    dataparadeletar = input("Escreva a data da corrida a ser deletada no formato DD/MM/AAAA: ")
+    datadelete = f"""'{dataparadeletar}'"""
+    deleteData = f"""DELETE FROM DADOS WHERE data={datadelete}"""
+    curr.execute(deleteData)
+    print("Corrida removida com sucesso!")
+
+    conn.commit()
