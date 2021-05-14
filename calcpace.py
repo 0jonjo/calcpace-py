@@ -1,28 +1,47 @@
-import time
+from functions import dist
+from functions import tempo
+from functions import ajustetempo
+from functions import pace
+from functions import prevcorrida
+from functions import convertertempo
+from functions import impressao
+from functions import entradadata
+from functions import observacao
+from functions import inserirdados
+from functions import verdados
+from functions import deletardados
+from functions import criartabela
 
-#Escolha da distância base para os cálculos
-dist = input('Qual a distância a ser percorrida em km?\n m = maratona, h = meia maratona ou digite os km. Ex: X.X ')
-if dist == 'm':
-    c = 42.195
-elif dist == 'h':
-    c = 21.0975
+#Menu inicial
+opcao = input('Escolha a opção desejada:\n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. DELETAR CORRIDA]\n [5. VER CORRIDAS SALVAS]\n')
+if opcao == '1':
+    totaldistancia = dist()
+    totaltempo = tempo()
+    ajuste = ajustetempo(totaltempo)
+    finalpace = pace(ajuste, totaldistancia)
+    converter = convertertempo(finalpace)
+    impress = impressao(converter)
+elif opcao == '2':
+    totaldistancia = dist()
+    totaltempo = tempo()
+    ajuste = ajustetempo(totaltempo)
+    calctempo = prevcorrida(totaltempo, totaldistancia)
+    converter = convertertempo(finalpace)
+    impress = impressao(converter)
+elif opcao == '3':
+    criartabela()
+    data = entradadata()
+    totaldistancia = dist()
+    totaltempo = tempo()
+    ajuste = ajustetempo(totaltempo)
+    finalpace = pace(ajuste, totaldistancia)
+    converter = convertertempo(finalpace)           
+    obs = observacao()
+    escrever = inserirdados(data, totaldistancia, totaltempo, converter, obs)
+elif opcao == '4':
+    verdados()
+    deletardados()
+elif opcao == '5':
+    verdados()
 else:
-    c = float(dist)
-    
-#Input do tempo total de prova ou do pace
-tempo = input('Quanto tempo ou pace. Escreva no formato (H:M:S)? ')
-hora, minuto, segundo = tempo.split(':')
-t = (int(hora)*3600) + (int(minuto)*60) + int(segundo)
-
-#Escolha da opção de calculo - 0 para tempo de corrida / qualquer tecla para pace    
-escolha = input("Digite '0' para prever um tempo de corrida\n ou qualquer tecla para calcular o pace: ")
-if escolha == '0':
-    d = t * c
-else:
-    d = t / c
-    
-#Padronização de formato e impressão do resultado de acordo com a escolha do usuário
-ty_res = time.gmtime(d)
-resultado = time.strftime("%H:%M:%S",ty_res)
-print(f'Você percorrerá em {resultado}.')
-    
+    print('Opção inválida')
