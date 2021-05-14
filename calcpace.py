@@ -13,7 +13,7 @@ from functions import deletardados
 from functions import criartabela
 
 #Menu inicial
-opcao = input('Escolha a opção desejada:\n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. VER CORRIDAS SALVAS]\n [5. DELETAR CORRIDA]\n')
+opcao = input('Escolha a opção desejada:\n [1. CALC PACE] [2. CALC TEMPO CORRIDA]\n [3. SALVAR CORRIDA] [4. DELETAR CORRIDA]\n [5. VER CORRIDAS SALVAS]\n')
 if opcao == '1':
     totaldistancia = dist()
     totaltempo = tempo()
@@ -40,8 +40,8 @@ elif opcao == '3':
     escrever = inserirdados(data, totaldistancia, totaltempo, converter, obs)
 elif opcao == '4':
     verdados()
+    deletardados()
 elif opcao == '5':
     verdados()
-    deletardados()
 else:
     print('Opção inválida')

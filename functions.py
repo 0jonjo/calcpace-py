@@ -1,8 +1,4 @@
 import time
-import datetime
-from datetime import datetime
-import csv
-from csv import reader, writer
 import sqlite3
 
 conn = sqlite3.connect("calpace.db")
@@ -19,7 +15,7 @@ def dist():
     return d
 
 def tempo():
-    temp = input("Escreva o tempo ou pace da corrida formato HH:MM:SS) ")
+    temp = input("Escreva o tempo ou pace da corrida no formato HH:MM:SS) ")
     return temp
     
 def ajustetempo(temp):
@@ -75,17 +71,13 @@ def inserirdados(data, dist, tempo, pace, obs):
     print(addData)
     curr.execute(addData)
     print("Corrida salva com sucesso!")
- 
     conn.commit()
 
 def verdados():
 
     fetchData = "SELECT * from DADOS"
- 
     curr.execute(fetchData)
- 
     answer = curr.fetchall()
- 
     for data in answer:
         print(data)
 
@@ -96,5 +88,4 @@ def deletardados():
     deleteData = f"""DELETE FROM DADOS WHERE data={datadelete}"""
     curr.execute(deleteData)
     print("Corrida removida com sucesso!")
-
     conn.commit()
