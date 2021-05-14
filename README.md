@@ -41,7 +41,7 @@ It returns the pace (HH:MM:SS).
 Place the distance (XX.XX km) to the pace (HH: MM: SS).
 It returns the predicted running time (HH: MM: SS).
 
-**Option 3 - SAVE RACE**
+**Option 3 - SAVE RUN**
 
 Enter the date (DD / MM / YYYY) distance (XX.XX km), running time (HH: MM: SS) and observations (optional). It automatically calculates and records the pace.
 
