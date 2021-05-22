@@ -5,7 +5,7 @@ conn = sqlite3.connect("calpace.db")
 curr = conn.cursor()
 
 def dist():
-    distancia = input("Escreva a distância em km?\n m = maratona, h = meia maratona ou digite os km em X.X ")
+    distancia = input("Escreva a distância\n m = maratona, h = meia maratona ou digite os km em X.X ")
     if distancia == 'm':
         d = 42.195
     elif distancia == 'h':
