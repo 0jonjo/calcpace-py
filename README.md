@@ -1,4 +1,4 @@
-# CALCPACE v.2
+# CALCPACE
 
 ### [PT-BR]
 
