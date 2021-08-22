@@ -5,49 +5,50 @@ conn = sqlite3.connect("calpace.db")
 curr = conn.cursor()
 
 def dist():
-    distancia = input("Escreva a distância\n m = maratona, h = meia maratona ou digite os km em X.X ")
-    if distancia == 'm':
+    distance = input("Escreva a distância\n m = maratona, h = meia maratona ou digite os km em X.X ")
+    if distance == 'm':
         d = 42.195
-    elif distancia == 'h':
+    elif distance == 'h':
         d = 21.0975
     else:
-        d = distancia
+        d = distance
     return d
 
-def tempo():
+
+def timerun():
     temp = input("Escreva o tempo ou pace da corrida no formato HH:MM:SS) ")
     return temp
     
-def ajustetempo(temp):
-    hora, minuto, segundo = temp.split(':')
-    t = (int(hora)*3600) + (int(minuto)*60) + int(segundo)
-    return t
+def adjust(timerun):
+    hour, minute, seconds = timerun.split(':')
+    adjustedtime = (int(hour)*3600) + (int(minute)*60) + int(seconds)
+    return adjustedtime
 
-def pace(pacetempo, pacedistancia):
-    resultadopace = float(pacetempo) / float(pacedistancia)
-    return resultadopace
+def calcpace(pacetime, pacedistance):
+    resultpace = float(pacetime) / float(pacedistance)
+    return resultpace
 
-def prevcorrida(pacetempo, distancia):
-    resultadotempocorrida = float(pacetempo) * float(distancia)
-    return resultadotempocorrida
+def predictrun(pacetime, distance):
+    predict = float(pacetime) * float(distance)
+    return predict
 
-def convertertempo(t):
+def converttime(t):
     ty_res = time.gmtime(t)
-    resultado = time.strftime("%H:%M:%S",ty_res)
-    return resultado
+    result = time.strftime("%H:%M:%S",ty_res)
+    return result
 
-def impressao(i):
-    print(f'O resultado é {i}.')
+def toprint(result):
+    print(f'O resultado é {result}.')
 
-def entradadata():
+def date():
     data = input("Insira a data no formato DD/MM/AAAA: ")
-    return data
+    return str(data)
 
-def observacao():
+def observations():
     obs = input("Insira a observação: ")
     return obs
 
-def criartabela():
+def createtable():
 
     createTableCommand =  """CREATE TABLE DADOS (
     data TEXT PRIMARY KEY,
@@ -65,7 +66,7 @@ def criartabela():
     finally:
         conn.commit()
 
-def inserirdados(data, dist, tempo, pace, obs):
+def setdata(data, dist, tempo, pace, obs):
          
     addData = f"""INSERT INTO DADOS VALUES('{data}', '{dist}', '{tempo}', '{pace}', '{obs}')"""
     print(addData)
@@ -73,7 +74,7 @@ def inserirdados(data, dist, tempo, pace, obs):
     print("Corrida salva com sucesso!")
     conn.commit()
 
-def verdados():
+def getdata():
 
     fetchData = "SELECT * from DADOS"
     curr.execute(fetchData)
@@ -81,7 +82,7 @@ def verdados():
     for data in answer:
         print(data)
 
-def deletardados():
+def deletedata():
 
     dataparadeletar = input("Escreva a data da corrida a ser deletada no formato DD/MM/AAAA: ")
     datadelete = f"""'{dataparadeletar}'"""
