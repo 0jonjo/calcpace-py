@@ -40,7 +40,7 @@ elif option == '3':
     finalpace = calcpace(adjusted, total)
     convertedpace = converttime(finalpace)           
     obs = observations()
-    escrever = setdata(date, total, totaltime, convertedpace, obs)
+    escrever = setdata(thedate, total, totaltime, convertedpace, obs)
 elif option == '4':
     getdata()
     deletedata()

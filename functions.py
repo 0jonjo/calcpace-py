@@ -42,7 +42,7 @@ def toprint(result):
 
 def date():
     data = input("Insira a data no formato DD/MM/AAAA: ")
-    return data
+    return str(data)
 
 def observations():
     obs = input("Insira a observação: ")
