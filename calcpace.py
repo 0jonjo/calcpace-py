@@ -11,12 +11,12 @@ from functions import setdata
 from functions import getdata
 from functions import deletedata
 from functions import createtable
+from texts import menu_text
+from texts import invalidoption_text
 
 #Menu inicial
-print("""
-CALCPACE
-""")
-option = input('Escolha a opção desejada:\n 1. CALCULAR O PACE\n 2. CALCULAR O TEMPO CORRIDA\n 3. SALVAR CORRIDA\n 4. DELETAR CORRIDA\n 5. VER CORRIDAS SALVAS\n Ctrl + C para sair do programa a qualquer momento\n')
+menu_text()
+option = input()
 if option == '1':
     total = dist()
     totaltime= timerun()
@@ -47,4 +47,4 @@ elif option == '4':
 elif option == '5':
     getdata()
 else:
-    print('Opção inválida')
+    invalidoption_text()

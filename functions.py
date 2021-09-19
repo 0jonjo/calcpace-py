@@ -1,11 +1,22 @@
 import time
 import sqlite3
+from texts import datedelete_text, dist_text
+from texts import timerun_text
+from texts import toprint
+from texts import date_text
+from texts import observations_text
+from texts import runsaved_text
+from texts import rundeleted_text
+from texts import tablecreated_text
+from texts import tabledeleted_text
+from texts import datedelete_text
 
 conn = sqlite3.connect("calpace.db")
 curr = conn.cursor()
 
 def dist():
-    distance = input("Escreva a distância\n m = maratona, h = meia maratona ou digite os km em X.X ")
+    dist_text()
+    distance = input()
     if distance == 'm':
         d = 42.195
     elif distance == 'h':
@@ -14,9 +25,9 @@ def dist():
         d = distance
     return d
 
-
 def timerun():
-    temp = input("Escreva o tempo ou pace da corrida no formato HH:MM:SS) ")
+    timerun_text()
+    temp = input()
     return temp
     
 def adjust(timerun):
@@ -37,15 +48,14 @@ def converttime(t):
     result = time.strftime("%H:%M:%S",ty_res)
     return result
 
-def toprint(result):
-    print(f'O resultado é {result}.')
-
 def date():
-    data = input("Insira a data no formato DD/MM/AAAA: ")
+    date_text()
+    data = input()
     return str(data)
 
 def observations():
-    obs = input("Insira a observação: ")
+    observations_text()
+    obs = input()
     return obs
 
 def createtable():
@@ -60,9 +70,9 @@ def createtable():
 
     try: 
         curr.execute(createTableCommand)
-        print("Tabela criada com sucesso")
+        tablecreated_text()
     except:
-        print("Já existe uma tabela")
+        tabledeleted_text()
     finally:
         conn.commit()
 
@@ -71,7 +81,7 @@ def setdata(data, dist, tempo, pace, obs):
     addData = f"""INSERT INTO DADOS VALUES('{data}', '{dist}', '{tempo}', '{pace}', '{obs}')"""
     print(addData)
     curr.execute(addData)
-    print("Corrida salva com sucesso!")
+    runsaved_text
     conn.commit()
 
 def getdata():
@@ -84,9 +94,10 @@ def getdata():
 
 def deletedata():
 
-    dataparadeletar = input("Escreva a data da corrida a ser deletada no formato DD/MM/AAAA: ")
+    datedelete_text()
+    dataparadeletar = input()
     datadelete = f"""'{dataparadeletar}'"""
     deleteData = f"""DELETE FROM DADOS WHERE data={datadelete}"""
     curr.execute(deleteData)
-    print("Corrida removida com sucesso!")
+    rundeleted_text()
     conn.commit()
